@@ -28,7 +28,7 @@ namespace Consultorio
         {
 
             services.AddControllers();
-
+            //Adding Cors
             services.AddCors(o =>
             {
                 o.AddPolicy("AllowAll", builder =>
@@ -56,6 +56,7 @@ namespace Consultorio
 
             app.UseHttpsRedirection();
 
+            //Allow all Cors
             app.UseCors("AllowAll");
 
             app.UseRouting();
