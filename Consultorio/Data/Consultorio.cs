@@ -2,7 +2,7 @@
 {
     public class Consultorio
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public string name { get; set; } = string.Empty;
 

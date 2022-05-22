@@ -25,6 +25,8 @@ namespace Consultorio.Data
 
         public float Peso { get; set; }
 
+        public string Sexo { get; set; }
+
         public string Notas { get; set; }
     }
 }
