@@ -1,7 +1,9 @@
+using Consultorio.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,7 +29,11 @@ namespace Consultorio
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddDbContext<DataBaseContext>(options => 
+
+            options.UseSqlServer(Configuration.GetConnectionString("sqlConnection"))
+
+            );
             //Adding Cors
             services.AddCors(o =>
             {
@@ -42,6 +48,8 @@ namespace Consultorio
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Consultorio", Version = "v1" });
             });
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

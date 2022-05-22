@@ -30,6 +30,7 @@ namespace Consultorio
                 CreateHostBuilder(args).Build().Run();
             }catch(Exception e)
             {
+                Log.Error(e.ToString());
                 throw;
             }
             finally
