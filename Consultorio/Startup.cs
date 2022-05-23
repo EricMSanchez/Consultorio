@@ -34,6 +34,8 @@ namespace Consultorio
             options.UseSqlServer(Configuration.GetConnectionString("sqlConnection"))
 
             );
+
+
             //Adding Cors
             services.AddCors(o =>
             {
